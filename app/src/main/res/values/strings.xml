@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Fyber</string>
+
+    <string name="offer_list_label">Fyber offers</string>
+
+
+    <!--fragment offers request strings-->
+    <string name="hint_uid">Uid</string>
+    <string name="hint_api_key">Api</string>
+    <string name="hint_app_id">App Id</string>
+    <string name="hint_pub0">Pub0</string>
+    <string name="button_find_offers_text">Find offers</string>
+
+    <!--error edit text messages-->
+    <string name="error_empty_api_key">Enter Api key</string>
+    <string name="error_empty_uid">Enter Uid</string>
+    <string name="error_empty_app_id">Enter app id</string>
+    <string name="error_empty_pub0">Enter pub0</string>
+
+    <!--default texts for request form-->
+    <string name="default_uid">spiderman</string>
+    <string name="default_app_key">1c915e3b5d42d05136185030892fbb846c278927</string>
+    <string name="default_app_id">2070</string>
+    <string name="default_pub0">campaign2</string>
+
+    <string name="empty_offers">No offers</string>
+
+    <string name="error_failed_load_offers_message">Failed to load offers</string>
+
+</resources>

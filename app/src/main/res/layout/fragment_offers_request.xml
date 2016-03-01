@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/offers_request_margin"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/editText_api_key"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:hint="@string/hint_api_key"
+            android:text="@string/default_app_key"/>
+
+        <EditText
+            android:id="@+id/editText_uid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:hint="@string/hint_uid"
+            android:text="@string/default_uid"/>
+
+        <EditText
+            android:id="@+id/editText_app_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:hint="@string/hint_app_id"
+            android:text="@string/default_app_id"/>
+
+        <EditText
+            android:id="@+id/editText_pub0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:hint="@string/hint_pub0"
+            android:text="@string/default_pub0"/>
+
+        <Button
+            android:id="@+id/button_find_offers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/button_find_offers_text" />
+
+    </LinearLayout>
+
+</ScrollView>

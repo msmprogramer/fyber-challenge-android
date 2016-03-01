@@ -1,0 +1,18 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="offers_request_margin">16dp</dimen>
+
+    <dimen name="offer_item_margin">5dp</dimen>
+
+    <dimen name="offer_item_img_width">80dp</dimen>
+    <dimen name="offer_item_img_height">80dp</dimen>
+    <dimen name="offer_item_img_margin">5dp</dimen>
+
+
+
+
+
+</resources>
