@@ -1,7 +1,5 @@
 package com.fyber.fyberapp.mvp.presenter;
 
-import android.content.Context;
-
 import com.fyber.fyberapp.model.Offer;
 import com.fyber.fyberapp.model.OffersRequest;
 import com.fyber.fyberapp.mvp.interactor.OffersInteractor;
@@ -9,7 +7,7 @@ import com.fyber.fyberapp.mvp.interactor.OnFinishedListener;
 
 import java.util.List;
 
-public class OffersPresenter implements OnFinishedListener<List<Offer>>{
+public class OffersPresenter implements OnFinishedListener<List<Offer>> {
 
     private final OffersView offersView;
     private final OffersInteractor offersInteractor;

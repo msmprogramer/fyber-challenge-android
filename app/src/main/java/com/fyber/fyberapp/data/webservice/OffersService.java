@@ -18,7 +18,7 @@ public class OffersService  {
         offersRest = restAdapter.create(OffersRest.class);
     }
 
-    public OffersRest getServiceProxy(){
+    public OffersRest getServiceProxy() {
         return offersRest;
     }
 }

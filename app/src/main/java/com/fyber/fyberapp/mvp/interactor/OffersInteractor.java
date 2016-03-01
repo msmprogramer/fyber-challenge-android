@@ -18,6 +18,10 @@ import retrofit.mime.TypedByteArray;
 
 public class OffersInteractor {
 
+    public static OffersInteractor newInstance() {
+        return new OffersInteractor();
+    }
+
     public void listOffers(final OffersRequest offersRequest, final OnFinishedListener<List<Offer>> listener) {
 
         new OffersService().getServiceProxy().queryOffers(offersRequest.toQueryMap(), new Callback<OffersResponse>() {

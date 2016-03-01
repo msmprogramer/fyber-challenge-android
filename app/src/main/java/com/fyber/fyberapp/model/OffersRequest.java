@@ -80,7 +80,7 @@ public class OffersRequest implements Parcelable {
         return linkedHashMap;
     }
 
-    private String getHashkey(LinkedHashMap<String,String> linkedHashMap){
+    private String getHashkey(LinkedHashMap<String,String> linkedHashMap) {
 
         String parmsString = "";
         for (Map.Entry<String, String> entry :
@@ -104,7 +104,7 @@ public class OffersRequest implements Parcelable {
         private String pub0;
         private String apiKey;
 
-        public Builder withAppId(String appId) {
+        public Builder appId(String appId) {
             this.appId = appId;
             return this;
         }

@@ -4,6 +4,7 @@ package com.fyber.fyberapp.ui.fragments;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -28,7 +29,7 @@ import org.w3c.dom.Text;
 
 import java.util.List;
 
-public class OffersListFragment extends Fragment implements OffersView{
+public class OffersListFragment extends Fragment implements OffersView {
 
     private RecyclerView recyclerViewOffers;
     private ProgressBar progressBarLoading;
@@ -41,7 +42,7 @@ public class OffersListFragment extends Fragment implements OffersView{
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         offersRequest = (OffersRequest) getArguments().getParcelable(OffersRequestFragment.EXTRA_OFFER_REQUEST);
-        offersPresenter = new OffersPresenter(this, new OffersInteractor());
+        offersPresenter = new OffersPresenter(this, OffersInteractor.newInstance());
     }
 
     @Nullable
@@ -98,7 +99,7 @@ public class OffersListFragment extends Fragment implements OffersView{
 
     @Override
     public void showFailureMessage() {
-        Toast.makeText(getActivity(), getString(R.string.error_failed_load_offers_message), Toast.LENGTH_SHORT).show();
+        Snackbar.make(getView(), getString(R.string.error_failed_load_offers_message), Snackbar.LENGTH_SHORT).show();
     }
 
     public boolean isViewAttached(){

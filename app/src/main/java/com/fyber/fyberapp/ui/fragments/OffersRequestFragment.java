@@ -75,7 +75,7 @@ public class OffersRequestFragment extends Fragment {
     }
     private OffersRequest createOfferRequest() {
         return new OffersRequest.Builder()
-                .withAppId(editTextAppId.getText().toString())
+                .appId(editTextAppId.getText().toString())
                 .ip(getDeviceIpAddress())
                 .locale(Locale.getDefault().getLanguage())
                 .timestamp(String.valueOf(System.currentTimeMillis() / 1000))

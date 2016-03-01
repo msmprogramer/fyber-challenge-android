@@ -20,8 +20,6 @@ public final class Constants {
 
     public static final String PARMS_SECURITY_HEADER = "X-Sponsorpay-Response-Signature";
 
-
-
     //Api Url
     public static final String FYBER_API_URL = "http://api.fyber.com";
 }
