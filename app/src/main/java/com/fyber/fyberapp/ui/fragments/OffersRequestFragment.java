@@ -75,14 +75,14 @@ public class OffersRequestFragment extends Fragment {
     }
     private OffersRequest createOfferRequest() {
         return new OffersRequest.Builder()
-                .appId(editTextAppId.getText().toString())
-                .ip(getDeviceIpAddress())
-                .locale(Locale.getDefault().getLanguage())
-                .timestamp(String.valueOf(System.currentTimeMillis() / 1000))
-                .uid(editTextUid.getText().toString())
-                .offerTypes(Constants.OFFER_TYPES_VALUE)
-                .pub0(editTextPub0.getText().toString())
-                .apikey(editTextApiKey.getText().toString())
+                .setAppId(editTextAppId.getText().toString())
+                .setIp(getDeviceIpAddress())
+                .setLocale(Locale.getDefault().getLanguage())
+                .setTimestamp(String.valueOf(System.currentTimeMillis() / 1000))
+                .setUid(editTextUid.getText().toString())
+                .setOfferTypes(Constants.OFFER_TYPES_VALUE)
+                .setPub0(editTextPub0.getText().toString())
+                .setApikey(editTextApiKey.getText().toString())
                 .build();
     }
 

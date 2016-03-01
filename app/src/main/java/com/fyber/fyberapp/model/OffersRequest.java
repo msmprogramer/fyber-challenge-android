@@ -76,7 +76,7 @@ public class OffersRequest implements Parcelable {
         linkedHashMap.put(Constants.PARMS_TIMES_STAMP, getTimestamp());
         linkedHashMap.put(Constants.PARMS_UID, getUid());
         linkedHashMap.put(Constants.PARMS_HASH_KEY, getHashkey(linkedHashMap));
-        
+
         return linkedHashMap;
     }
 
@@ -104,42 +104,42 @@ public class OffersRequest implements Parcelable {
         private String pub0;
         private String apiKey;
 
-        public Builder appId(String appId) {
+        public Builder setAppId(String appId) {
             this.appId = appId;
             return this;
         }
 
-        public Builder ip(String ip) {
+        public Builder setIp(String ip) {
             this.ip = ip;
             return this;
         }
 
-        public Builder locale(String locale) {
+        public Builder setLocale(String locale) {
             this.locale = locale;
             return this;
         }
 
-        public Builder timestamp(String timestamp) {
+        public Builder setTimestamp(String timestamp) {
             this.timestamp = timestamp;
             return this;
         }
 
-        public Builder uid(String uid) {
+        public Builder setUid(String uid) {
             this.uid = uid;
             return this;
         }
 
-        public Builder offerTypes(String offerTypes) {
+        public Builder setOfferTypes(String offerTypes) {
             this.offerTypes = offerTypes;
             return this;
         }
 
-        public Builder pub0(String pub0) {
+        public Builder setPub0(String pub0) {
             this.pub0 = pub0;
             return this;
         }
 
-        public Builder apikey(String apiKey) {
+        public Builder setApikey(String apiKey) {
             this.apiKey = apiKey;
             return this;
         }
