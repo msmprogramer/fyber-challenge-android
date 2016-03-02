@@ -42,6 +42,7 @@ public class OffersListFragment extends Fragment implements OffersView {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         offersRequest = (OffersRequest) getArguments().getParcelable(OffersRequestFragment.EXTRA_OFFER_REQUEST);
+        offersAdapter = new OffersAdapter(getActivity());
         offersPresenter = new OffersPresenter(this, OffersInteractor.newInstance());
     }
 
@@ -55,10 +56,13 @@ public class OffersListFragment extends Fragment implements OffersView {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
         recyclerViewOffers = (RecyclerView) view.findViewById(R.id.recycle_view_offers);
+
+        //init recycle view
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerViewOffers.setLayoutManager(layoutManager);
         recyclerViewOffers.setHasFixedSize(true);
+        recyclerViewOffers.setAdapter(offersAdapter);
         recyclerViewOffers.addItemDecoration(new SimpleDividerItemDecoration(
                 getActivity()
         ));
@@ -88,8 +92,8 @@ public class OffersListFragment extends Fragment implements OffersView {
 
     @Override
     public void showOffers(List<Offer> offers) {
-        offersAdapter =  new OffersAdapter(getActivity(), offers);
-        recyclerViewOffers.setAdapter(offersAdapter);
+        offersAdapter.setOffers(offers);
+        offersAdapter.notifyDataSetChanged();
     }
 
     @Override

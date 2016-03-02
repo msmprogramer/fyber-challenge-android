@@ -16,14 +16,13 @@ import java.util.Collections;
 import java.util.List;
 
 public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.OfferViewHolder> {
-    private List<Offer> data = Collections.emptyList();
+    private List<Offer> offersList = Collections.emptyList();
     private LayoutInflater inflater;
     private Context context;
 
-    public OffersAdapter(Context context, List<Offer> data) {
+    public OffersAdapter(Context context) {
         this.context = context;
         inflater = LayoutInflater.from(context);
-        this.data = data;
     }
 
     @Override
@@ -35,7 +34,7 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.OfferViewH
 
     @Override
     public void onBindViewHolder(OfferViewHolder offerViewHolder, int position) {
-        Offer offer = data.get(position);
+        Offer offer = offersList.get(position);
         offerViewHolder.getTextViewTitle().setText(
                 offer.getTitle())
         ;
@@ -53,9 +52,13 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.OfferViewH
                 .into(offerViewHolder.getImageViewOfferThumbnail());
     }
 
+    public void setOffers(List<Offer> offersList) {
+        this.offersList = offersList;
+    }
+
     @Override
     public int getItemCount() {
-        return data.size();
+        return offersList.size();
     }
 
   public static class OfferViewHolder extends RecyclerView.ViewHolder {
