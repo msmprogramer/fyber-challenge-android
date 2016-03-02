@@ -59,7 +59,7 @@ public class OffersInteractor {
         private String getSecurityHeaderValue(Response response) {
             List<Header> headerList = response.getHeaders();
             for(Header header : headerList) {
-                if(header.getName().equals(Constants.PARMS_SECURITY_HEADER)) {
+                if(header.getName().equals(Constants.PARAMETER_SECURITY_HEADER)) {
                     return header.getValue();
                 }
             }

@@ -68,29 +68,29 @@ public class OffersRequest implements Parcelable {
 
     public LinkedHashMap<String,String> toQueryMap() {
         LinkedHashMap<String,String> linkedHashMap = new LinkedHashMap<String,String>();
-        linkedHashMap.put(Constants.PARMS_APP_ID, getAppId());
-        linkedHashMap.put(Constants.PARMS_IP, getIp());
-        linkedHashMap.put(Constants.PARMS_LOCALE, getLocale());
-        linkedHashMap.put(Constants.PARMS_OFFER_TYPES, getOfferTypes());
-        linkedHashMap.put(Constants.PARMS_PUB0, getPub0());
-        linkedHashMap.put(Constants.PARMS_TIMES_STAMP, getTimestamp());
-        linkedHashMap.put(Constants.PARMS_UID, getUid());
-        linkedHashMap.put(Constants.PARMS_HASH_KEY, getHashkey(linkedHashMap));
+        linkedHashMap.put(Constants.PARAMETER_APP_ID, getAppId());
+        linkedHashMap.put(Constants.PARAMETER_IP, getIp());
+        linkedHashMap.put(Constants.PARAMETER_LOCALE, getLocale());
+        linkedHashMap.put(Constants.PARAMETER_OFFER_TYPES, getOfferTypes());
+        linkedHashMap.put(Constants.PARAMETER_PUB0, getPub0());
+        linkedHashMap.put(Constants.PARAMETER_TIMES_STAMP, getTimestamp());
+        linkedHashMap.put(Constants.PARAMETER_UID, getUid());
+        linkedHashMap.put(Constants.PARAMETER_HASH_KEY, getHashkey(linkedHashMap));
 
         return linkedHashMap;
     }
 
     private String getHashkey(LinkedHashMap<String,String> linkedHashMap) {
 
-        String parmsString = "";
+        String parametersString = "";
         for (Map.Entry<String, String> entry :
                 linkedHashMap.entrySet()) {
-            parmsString += entry.getKey()+"="+entry.getValue()+"&";
+            parametersString += entry.getKey() + "=" + entry.getValue() + "&";
         }
 
-        parmsString +=getApiKey();
+        parametersString += getApiKey();
 
-        return Hashing.sha1().hashString(parmsString, Charsets.UTF_8).toString();
+        return Hashing.sha1().hashString(parametersString, Charsets.UTF_8).toString();
     }
 
     public static class Builder {
