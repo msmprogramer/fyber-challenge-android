@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="test_uid">spiderman</string>
+    <string name="test_app_key">1c915e3b5d42d05136185030892fbb846c278927</string>
+    <string name="test_app_id">2070</string>
+    <string name="test_pub0">campaign2</string>
+    <string name="test_ip">109.235.143.113</string>
+    <string name="test_offer_types">112</string>
+    <string name="test_locale">de</string>
+
+</resources>

@@ -76,21 +76,14 @@ public class OffersRequestFragment extends Fragment {
     private OffersRequest createOfferRequest() {
         return new OffersRequest.Builder()
                 .setAppId(editTextAppId.getText().toString())
-                .setIp(getDeviceIpAddress())
-                .setLocale(Locale.getDefault().getLanguage())
+                .setIp(getString(R.string.test_ip))
+                .setLocale(getString(R.string.test_locale))
                 .setTimestamp(String.valueOf(System.currentTimeMillis() / 1000))
                 .setUid(editTextUid.getText().toString())
-                .setOfferTypes(Constants.OFFER_TYPES_VALUE)
+                .setOfferTypes(getString(R.string.test_offer_types))
                 .setPub0(editTextPub0.getText().toString())
                 .setApikey(editTextApiKey.getText().toString())
                 .build();
-    }
-
-    private String getDeviceIpAddress() {
-        WifiManager wm = (WifiManager) getActivity().getSystemService(Context.WIFI_SERVICE);
-        String ip = Formatter.formatIpAddress(wm.getConnectionInfo().getIpAddress());
-
-        return ip;
     }
 
     private class ButtonFindOffersClickListener implements View.OnClickListener {

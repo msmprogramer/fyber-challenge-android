@@ -16,8 +16,6 @@ public final class Constants {
     public static final String PARMS_UID = "uid";
     public static final String PARMS_HASH_KEY = "hashkey";
 
-    public static final String OFFER_TYPES_VALUE = "112";
-
     public static final String PARMS_SECURITY_HEADER = "X-Sponsorpay-Response-Signature";
 
     //Api Url
