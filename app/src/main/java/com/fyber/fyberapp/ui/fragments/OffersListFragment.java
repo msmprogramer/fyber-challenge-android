@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.fyber.fyberapp.InteractorInjection;
+import com.fyber.fyberapp.Injection;
 import com.fyber.fyberapp.R;
 import com.fyber.fyberapp.adpater.OffersAdapter;
 import com.fyber.fyberapp.model.Offer;
@@ -39,7 +39,7 @@ public class OffersListFragment extends Fragment implements OffersView {
         super.onCreate(savedInstanceState);
         offersRequest = (OffersRequest) getArguments().getParcelable(OffersRequestFragment.EXTRA_OFFER_REQUEST);
         offersAdapter = new OffersAdapter(getActivity());
-        offersPresenter = new OffersPresenter(this, InteractorInjection.getOffersInteractorInstance());
+        offersPresenter = new OffersPresenter(this, Injection.getOffersInteractorInstance());
     }
 
     @Nullable

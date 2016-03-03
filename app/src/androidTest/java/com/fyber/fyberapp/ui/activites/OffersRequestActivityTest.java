@@ -35,7 +35,7 @@ public class OffersRequestActivityTest {
 
 
     @Rule
-    public ActivityTestRule<OffersRequestActivity> activityTestRule =
+    public ActivityTestRule<OffersRequestActivity> offersRequestActivityActivityTestRule =
             new ActivityTestRule<>(OffersRequestActivity.class);
 
     @Test
@@ -110,20 +110,19 @@ public class OffersRequestActivityTest {
                 .check(matches(withText("apiId")));
     }
 
+    private String getString(int resId){
+        return getInstrumentation().getTargetContext().getString(resId);
+    }
+
     private void rotateScreen() {
 
         int orientation
-                = activityTestRule.getActivity().getResources().getConfiguration().orientation;
+                = offersRequestActivityActivityTestRule.getActivity().getResources().getConfiguration().orientation;
 
-        activityTestRule.getActivity().setRequestedOrientation(
+        offersRequestActivityActivityTestRule.getActivity().setRequestedOrientation(
                 (orientation == Configuration.ORIENTATION_PORTRAIT) ?
                         ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE :
                         ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-    }
-
-
-    private String getString(int resId){
-        return getInstrumentation().getTargetContext().getString(resId);
     }
 
     private static Matcher<View> withError(final int resourceId) {

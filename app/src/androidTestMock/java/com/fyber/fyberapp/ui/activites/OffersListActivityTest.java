@@ -57,7 +57,7 @@ public class OffersListActivityTest {
     OffersRequest offersRequest;
 
     @Rule
-    public ActivityTestRule<OffersListActivity> activityTestRule =
+    public ActivityTestRule<OffersListActivity> offersListActivityActivityTestRule =
             new ActivityTestRule<>(OffersListActivity.class, true, false);
 
     @Test
@@ -113,7 +113,7 @@ public class OffersListActivityTest {
     private void launchActivity() {
         Intent startIntent = new Intent();
         startIntent.putExtra(OffersRequestFragment.EXTRA_OFFER_REQUEST, offersRequest);
-        activityTestRule.launchActivity(startIntent);
+        offersListActivityActivityTestRule.launchActivity(startIntent);
     }
 
     private Offer createOffer(String thumbnailUrl) {

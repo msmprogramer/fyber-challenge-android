@@ -3,7 +3,7 @@ package com.fyber.fyberapp.util;
 public final class Constants {
 
     private Constants() {
-        // restrict instantiation
+        // no instance
     }
     
     //request parameters

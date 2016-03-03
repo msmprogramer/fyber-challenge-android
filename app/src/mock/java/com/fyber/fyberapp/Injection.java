@@ -3,13 +3,11 @@ package com.fyber.fyberapp;
 import com.fyber.fyberapp.mvp.interactor.FakeOffersInteractorImp;
 import com.fyber.fyberapp.mvp.interactor.OffersInteractor;
 
-public class InteractorInjection {
+public class Injection {
 
-    private InteractorInjection() {
+    private Injection() {
         // no instance
     }
-
-    private static OffersInteractor offersInteractor = null;
 
     public synchronized static OffersInteractor getOffersInteractorInstance() {
         return FakeOffersInteractorImp.newInstance();

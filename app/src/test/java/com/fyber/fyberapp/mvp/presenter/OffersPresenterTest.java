@@ -37,7 +37,7 @@ public class OffersPresenterTest {
     private OffersPresenter offersPresenter;
 
     @Captor
-    private ArgumentCaptor<OnFinishedListener<List<Offer>>> interactorCallback;
+    private ArgumentCaptor<OnFinishedListener<List<Offer>>> callback;
 
     @Before
     public void setUp() throws Exception {
@@ -49,10 +49,10 @@ public class OffersPresenterTest {
         offersPresenter.listOffers(mock(OffersRequest.class));
 
         verify(offersView).showProgress();
-        verify(offersInteractor).listOffers(any(OffersRequest.class), interactorCallback.capture());
+        verify(offersInteractor).listOffers(any(OffersRequest.class), callback.capture());
 
         when(offersView.isViewAttached()).thenReturn(true);
-        interactorCallback.getValue().onSuccess(OFFERS);
+        callback.getValue().onSuccess(OFFERS);
 
         verify(offersView).hideProgress();
         verify(offersView).showOffers(OFFERS);
@@ -64,10 +64,10 @@ public class OffersPresenterTest {
         offersPresenter.listOffers(mock(OffersRequest.class));
 
         verify(offersView).showProgress();
-        verify(offersInteractor).listOffers(any(OffersRequest.class), interactorCallback.capture());
+        verify(offersInteractor).listOffers(any(OffersRequest.class), callback.capture());
 
         when(offersView.isViewAttached()).thenReturn(true);
-        interactorCallback.getValue().onSuccess(Collections.<Offer>emptyList());
+        callback.getValue().onSuccess(Collections.<Offer>emptyList());
 
         verify(offersView).hideProgress();
         verify(offersView).showEmptyOffers();
@@ -78,10 +78,10 @@ public class OffersPresenterTest {
         offersPresenter.listOffers(mock(OffersRequest.class));
 
         verify(offersView).showProgress();
-        verify(offersInteractor).listOffers(any(OffersRequest.class), interactorCallback.capture());
+        verify(offersInteractor).listOffers(any(OffersRequest.class), callback.capture());
 
         when(offersView.isViewAttached()).thenReturn(true);
-        interactorCallback.getValue().onSuccess(null);
+        callback.getValue().onSuccess(null);
 
         verify(offersView).hideProgress();
         verify(offersView).showEmptyOffers();
@@ -92,10 +92,10 @@ public class OffersPresenterTest {
         offersPresenter.listOffers(mock(OffersRequest.class));
 
         verify(offersView).showProgress();
-        verify(offersInteractor).listOffers(any(OffersRequest.class), interactorCallback.capture());
+        verify(offersInteractor).listOffers(any(OffersRequest.class), callback.capture());
 
         when(offersView.isViewAttached()).thenReturn(true);
-        interactorCallback.getValue().onFailure();
+        callback.getValue().onFailure();
 
         verify(offersView).hideProgress();
         verify(offersView).showFailureMessage();
