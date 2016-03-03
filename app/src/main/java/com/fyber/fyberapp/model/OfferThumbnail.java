@@ -13,6 +13,9 @@ public class OfferThumbnail {
     private String hires;
 
 
+    public void setHires(String hires) {
+        this.hires = hires;
+    }
     public String getLowres() {
         return lowres;
     }

@@ -44,8 +44,6 @@ public class OffersPresenterTest {
         offersPresenter = new OffersPresenter(offersView, offersInteractor);
     }
 
-
-
     @Test
     public void loadOffers_ShowOffersView() {
         offersPresenter.listOffers(mock(OffersRequest.class));

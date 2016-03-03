@@ -1,12 +1,9 @@
 package com.fyber.fyberapp.ui.fragments;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.text.format.Formatter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +13,7 @@ import android.widget.EditText;
 import com.fyber.fyberapp.R;
 import com.fyber.fyberapp.model.OffersRequest;
 import com.fyber.fyberapp.ui.activites.OffersListActivity;
-import com.fyber.fyberapp.util.Constants;
 
-import java.util.Locale;
 
 public class OffersRequestFragment extends Fragment {
 

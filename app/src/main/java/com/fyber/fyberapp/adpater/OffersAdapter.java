@@ -47,9 +47,14 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.OfferViewH
                 String.valueOf(offer.getPayout())
         );
 
-        Picasso.with(context).load(offer.getOfferThumbnail().getHires())
-                .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher)
-                .into(offerViewHolder.getImageViewOfferThumbnail());
+        if(offer.getOfferThumbnail().getHires() != null &&
+               ! offer.getOfferThumbnail().getHires().isEmpty()) {
+            Picasso.with(context).load(offer.getOfferThumbnail().getHires())
+                    .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher)
+                    .into(offerViewHolder.getImageViewOfferThumbnail());
+        } else {
+            offerViewHolder.getImageViewOfferThumbnail().setImageResource(R.mipmap.ic_launcher);
+        }
     }
 
     public void setOffers(List<Offer> offersList) {

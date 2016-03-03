@@ -1,7 +1,5 @@
 package com.fyber.fyberapp.mvp.presenter;
 
-import android.app.Activity;
-
 import com.fyber.fyberapp.model.Offer;
 
 import java.util.List;

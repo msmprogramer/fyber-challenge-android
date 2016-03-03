@@ -1,31 +1,27 @@
 package com.fyber.fyberapp.ui.fragments;
 
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.fyber.fyberapp.InteractorInjection;
 import com.fyber.fyberapp.R;
 import com.fyber.fyberapp.adpater.OffersAdapter;
 import com.fyber.fyberapp.model.Offer;
 import com.fyber.fyberapp.model.OffersRequest;
-import com.fyber.fyberapp.mvp.interactor.OffersInteractor;
 import com.fyber.fyberapp.mvp.presenter.OffersPresenter;
 import com.fyber.fyberapp.mvp.presenter.OffersView;
 import com.fyber.fyberapp.ui.views.SimpleDividerItemDecoration;
 
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -43,7 +39,7 @@ public class OffersListFragment extends Fragment implements OffersView {
         super.onCreate(savedInstanceState);
         offersRequest = (OffersRequest) getArguments().getParcelable(OffersRequestFragment.EXTRA_OFFER_REQUEST);
         offersAdapter = new OffersAdapter(getActivity());
-        offersPresenter = new OffersPresenter(this, OffersInteractor.newInstance());
+        offersPresenter = new OffersPresenter(this, InteractorInjection.getOffersInteractorInstance());
     }
 
     @Nullable

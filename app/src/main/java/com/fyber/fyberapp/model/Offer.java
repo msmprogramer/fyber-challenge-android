@@ -41,6 +41,22 @@ public class Offer {
     private String storeId;
 
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setTeaser(String teaser) {
+        this.teaser = teaser;
+    }
+
+    public void setPayout(int payout) {
+        this.payout = payout;
+    }
+
+    public void setThumbnail(OfferThumbnail thumbnail) {
+        this.thumbnail = thumbnail;
+    }
+
     public String getTitle() {
         return title;
     }

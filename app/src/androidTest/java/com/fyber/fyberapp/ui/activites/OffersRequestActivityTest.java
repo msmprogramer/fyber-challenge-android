@@ -38,7 +38,6 @@ public class OffersRequestActivityTest {
     public ActivityTestRule<OffersRequestActivity> activityTestRule =
             new ActivityTestRule<>(OffersRequestActivity.class);
 
-
     @Test
     public void shouldShowErrorMessageWhenApiKeyIsEmpty() {
         onView(withId(R.id.editText_api_key)).perform(clearText());
@@ -65,7 +64,6 @@ public class OffersRequestActivityTest {
                 withError(R.string.error_empty_app_id)
         ));
     }
-
 
     @Test
     public void shouldShowErrorMessageWhenPub0IsEmpty() {
@@ -127,6 +125,7 @@ public class OffersRequestActivityTest {
     private String getString(int resId){
         return getInstrumentation().getTargetContext().getString(resId);
     }
+
     private static Matcher<View> withError(final int resourceId) {
         return new TypeSafeMatcher<View>() {
 
