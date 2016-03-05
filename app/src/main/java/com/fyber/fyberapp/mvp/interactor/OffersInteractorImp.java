@@ -64,7 +64,8 @@ public class OffersInteractorImp implements OffersInteractor {
 
         String bodyString = new String(((TypedByteArray) response.getBody()).getBytes());
         String bodyWithApiKey = bodyString.concat(apiKey);
-        String hashBodyWithApiKey = Hashing.sha1().hashString(bodyWithApiKey, Charsets.UTF_8).toString();
+        String hashBodyWithApiKey = Hashing.sha1().
+                hashString(bodyWithApiKey, Charsets.UTF_8).toString();
         String headerSecurityValue = getSecurityHeaderValue(response);
 
         if(headerSecurityValue != null && headerSecurityValue.equals(hashBodyWithApiKey)) {

@@ -37,14 +37,17 @@ public class OffersListFragment extends Fragment implements OffersView {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        offersRequest = (OffersRequest) getArguments().getParcelable(OffersRequestFragment.EXTRA_OFFER_REQUEST);
+        offersRequest = (OffersRequest) getArguments().
+                getParcelable(OffersRequestFragment.EXTRA_OFFER_REQUEST);
         offersAdapter = new OffersAdapter(getActivity());
         offersPresenter = new OffersPresenter(this, Injection.getOffersInteractorInstance());
     }
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater,
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_offers_list, container, false);
     }
 

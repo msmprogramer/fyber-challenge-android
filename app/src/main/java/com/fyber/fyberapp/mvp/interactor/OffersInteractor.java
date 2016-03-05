@@ -8,5 +8,6 @@ import java.util.List;
 
 public interface OffersInteractor {
 
-    void listOffers(@NonNull OffersRequest offersRequest,@NonNull OnFinishedListener<List<Offer>> listener);
+    void listOffers(@NonNull OffersRequest offersRequest,
+                    @NonNull OnFinishedListener<List<Offer>> listener);
 }

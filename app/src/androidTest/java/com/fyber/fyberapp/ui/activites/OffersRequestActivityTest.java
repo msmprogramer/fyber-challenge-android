@@ -117,7 +117,8 @@ public class OffersRequestActivityTest {
     private void rotateScreen() {
 
         int orientation
-                = offersRequestActivityActivityTestRule.getActivity().getResources().getConfiguration().orientation;
+                = offersRequestActivityActivityTestRule.getActivity().
+                                getResources().getConfiguration().orientation;
 
         offersRequestActivityActivityTestRule.getActivity().setRequestedOrientation(
                 (orientation == Configuration.ORIENTATION_PORTRAIT) ?
@@ -139,7 +140,8 @@ public class OffersRequestActivityTest {
                     return false;
                 }
                 EditText editText = (EditText) view;
-                return editText.getError().toString().equals(view.getResources().getString(resourceId));
+                return editText.getError().toString().
+                        equals(view.getResources().getString(resourceId));
             }
 
         };

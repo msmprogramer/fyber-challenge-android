@@ -50,10 +50,11 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.OfferViewH
         if(offer.getOfferThumbnail().getHires() != null &&
                ! offer.getOfferThumbnail().getHires().isEmpty()) {
             Picasso.with(context).load(offer.getOfferThumbnail().getHires())
-                    .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher)
+                    .placeholder(R.drawable.ic_fyber_icon).error(R.drawable.ic_fyber_icon)
                     .into(offerViewHolder.getImageViewOfferThumbnail());
         } else {
-            offerViewHolder.getImageViewOfferThumbnail().setImageResource(R.mipmap.ic_launcher);
+            offerViewHolder.getImageViewOfferThumbnail().
+                    setImageResource(R.drawable.ic_fyber_icon);
         }
     }
 
