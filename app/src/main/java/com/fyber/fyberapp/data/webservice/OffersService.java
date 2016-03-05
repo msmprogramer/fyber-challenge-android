@@ -1,5 +1,7 @@
 package com.fyber.fyberapp.data.webservice;
 
+import android.support.annotation.Nullable;
+
 import com.fyber.fyberapp.data.api.OffersRest;
 import com.fyber.fyberapp.util.Constants;
 
@@ -18,6 +20,7 @@ public class OffersService  {
         offersRest = restAdapter.create(OffersRest.class);
     }
 
+    @Nullable
     public OffersRest getService() {
         return offersRest;
     }

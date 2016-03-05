@@ -13,6 +13,7 @@ public class OffersRequestActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
     }
 
+    @Nullable
     @Override
     protected Class<? extends Fragment> getFragmentClass() {
         return OffersRequestFragment.class;

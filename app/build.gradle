@@ -4,6 +4,10 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
 
+    lintOptions {
+        abortOnError false
+    }
+
     defaultConfig {
         applicationId "com.fyber.fyberapp"
         minSdkVersion rootProject.ext.minSdkVersion

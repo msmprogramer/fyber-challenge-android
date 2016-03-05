@@ -1,6 +1,7 @@
 package com.fyber.fyberapp.ui.activites;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -8,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.fyber.fyberapp.R;
+
+import static com.google.common.base.Preconditions.checkNotNull;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
@@ -25,7 +28,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         loadFragment(args);
     }
 
-    private void loadFragment(Bundle args) {
+    private void loadFragment(@NonNull Bundle args) {
+
+        checkNotNull(args);
 
         Class<? extends Fragment> fragmentClass = getFragmentClass();
 
@@ -58,5 +63,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Nullable
     protected abstract Class<? extends Fragment> getFragmentClass();
 }

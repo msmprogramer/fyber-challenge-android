@@ -1,5 +1,7 @@
 package com.fyber.fyberapp.mvp.presenter;
 
+import android.support.annotation.NonNull;
+
 import com.fyber.fyberapp.model.Offer;
 import com.fyber.fyberapp.model.OffersRequest;
 import com.fyber.fyberapp.mvp.interactor.OffersInteractor;
@@ -7,23 +9,25 @@ import com.fyber.fyberapp.mvp.interactor.OnFinishedListener;
 
 import java.util.List;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 public class OffersPresenter implements OnFinishedListener<List<Offer>> {
 
+    @NonNull
     private final OffersView offersView;
+    @NonNull
     private final OffersInteractor offersInteractor;
 
-    public OffersPresenter(OffersView offersView, OffersInteractor offersInteractor) {
-        this.offersView = offersView;
-        this.offersInteractor = offersInteractor;
+    public OffersPresenter(@NonNull OffersView offersView,
+                           @NonNull OffersInteractor offersInteractor) {
+        this.offersView = checkNotNull(offersView);
+        this.offersInteractor = checkNotNull(offersInteractor);
     }
 
     public void listOffers(OffersRequest offersRequest) {
-        if(offersInteractor != null) {
-            offersView.showProgress();
-           offersInteractor.listOffers(offersRequest, this);
-        }
+        offersView.showProgress();
+        offersInteractor.listOffers(offersRequest, this);
     }
-
 
     @Override
     public void onSuccess(List<Offer> offers) {
@@ -33,6 +37,7 @@ public class OffersPresenter implements OnFinishedListener<List<Offer>> {
         }
 
         offersView.hideProgress();
+
         if (offers == null || offers.isEmpty()) {
             offersView.showEmptyOffers();
         } else {

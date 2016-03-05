@@ -1,5 +1,7 @@
 package com.fyber.fyberapp.model;
 
+import android.support.annotation.Nullable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -20,6 +22,7 @@ public class OfferThumbnail {
         return lowres;
     }
 
+    @Nullable
     public String getHires() {
         return hires;
     }

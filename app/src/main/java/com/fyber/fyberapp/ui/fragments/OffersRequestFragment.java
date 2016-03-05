@@ -2,6 +2,7 @@ package com.fyber.fyberapp.ui.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,6 +14,8 @@ import android.widget.EditText;
 import com.fyber.fyberapp.R;
 import com.fyber.fyberapp.model.OffersRequest;
 import com.fyber.fyberapp.ui.activites.OffersListActivity;
+
+import static com.google.common.base.Preconditions.checkNotNull;
 
 
 public class OffersRequestFragment extends Fragment {
@@ -32,7 +35,6 @@ public class OffersRequestFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-
         editTextUid = (EditText) view.findViewById(R.id.editText_uid);
         editTextApiKey = (EditText) view.findViewById(R.id.editText_api_key);
         editTextAppId = (EditText) view.findViewById(R.id.editText_app_id);
@@ -45,29 +47,31 @@ public class OffersRequestFragment extends Fragment {
     }
 
     private boolean validateInputValues() {
-        boolean allInputsIsValid = true;
+        boolean allInputsValid = true;
         if(editTextApiKey.getText().toString().isEmpty()) {
-            allInputsIsValid = false;
+            allInputsValid = false;
             editTextApiKey.setError(getString(R.string.error_empty_api_key));
         }
 
         if(editTextUid.getText().toString().isEmpty()) {
-            allInputsIsValid = false;
+            allInputsValid = false;
             editTextUid.setError(getString(R.string.error_empty_uid));
         }
 
         if(editTextAppId.getText().toString().isEmpty()) {
-            allInputsIsValid = false;
+            allInputsValid = false;
             editTextAppId.setError(getString(R.string.error_empty_app_id));
         }
 
         if(editTextPub0.getText().toString().isEmpty()) {
-            allInputsIsValid = false;
+            allInputsValid = false;
             editTextPub0.setError(getString(R.string.error_empty_pub0));
         }
 
-        return allInputsIsValid;
+        return allInputsValid;
     }
+
+    @NonNull
     private OffersRequest createOfferRequest() {
         return new OffersRequest.Builder()
                 .setAppId(editTextAppId.getText().toString())
@@ -86,8 +90,9 @@ public class OffersRequestFragment extends Fragment {
         @Override
         public void onClick(View v) {
             if(validateInputValues()) {
+                OffersRequest offersRequest = checkNotNull(createOfferRequest());
                 Intent intent = new Intent(getActivity(), OffersListActivity.class);
-                intent.putExtra(EXTRA_OFFER_REQUEST, createOfferRequest());
+                intent.putExtra(EXTRA_OFFER_REQUEST, offersRequest);
                 startActivity(intent);
             }
         }
