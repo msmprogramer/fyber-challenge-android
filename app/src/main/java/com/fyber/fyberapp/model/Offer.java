@@ -11,7 +11,6 @@ import java.util.List;
 
 public class Offer {
 
-    @Nullable
     @SerializedName("title")
     @Expose
     private String title;
@@ -31,14 +30,12 @@ public class Offer {
     @SerializedName("offer_types")
     @Expose
     private List<OfferType> offerTypes = new ArrayList<OfferType>();
-    @Nullable
     @SerializedName("payout")
     @Expose
     private Integer payout;
     @SerializedName("time_to_payout")
     @Expose
     private OfferTimeToPayout offerTimeToPayout;
-    @Nullable
     @SerializedName("thumbnail")
     @Expose
     private OfferThumbnail thumbnail;
@@ -63,10 +60,8 @@ public class Offer {
         this.thumbnail = thumbnail;
     }
 
+    @Nullable
     public String getTitle() {
-        if(title == null) {
-            return "";
-        }
         return title;
     }
 
@@ -74,10 +69,8 @@ public class Offer {
         return offerId;
     }
 
+    @Nullable
     public String getTeaser() {
-        if(teaser == null) {
-            return "";
-        }
         return teaser;
     }
 
@@ -93,10 +86,8 @@ public class Offer {
         return offerTypes;
     }
 
+    @Nullable
     public Integer getPayout() {
-        if(payout == null) {
-            return 0;
-        }
         return payout;
     }
 
@@ -104,10 +95,8 @@ public class Offer {
         return offerTimeToPayout;
     }
 
+    @Nullable
     public OfferThumbnail getOfferThumbnail() {
-        if(thumbnail == null) {
-            return new OfferThumbnail();
-        }
         return thumbnail;
     }
 

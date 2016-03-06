@@ -1,6 +1,8 @@
 package com.fyber.fyberapp.adpater;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,64 +17,75 @@ import com.squareup.picasso.Picasso;
 import java.util.Collections;
 import java.util.List;
 
-public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.OfferViewHolder> {
-    private List<Offer> offersList = Collections.emptyList();
-    private LayoutInflater inflater;
-    private Context context;
+import static com.google.common.base.Preconditions.checkNotNull;
 
-    public OffersAdapter(Context context) {
+public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.OfferViewHolder> {
+    private List<Offer> offers;
+    private Context context;
+    public OffersAdapter(Context context, List<Offer> offers) {
         this.context = context;
-        inflater = LayoutInflater.from(context);
+        setList(offers);
     }
 
     @Override
     public OfferViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.offer_item, parent, false);
-        OfferViewHolder holder = new OfferViewHolder(view);
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View offerView = inflater.inflate(R.layout.offer_item, parent, false);
+        OfferViewHolder holder = new OfferViewHolder(offerView);
         return holder;
     }
 
     @Override
     public void onBindViewHolder(OfferViewHolder offerViewHolder, int position) {
-        Offer offer = offersList.get(position);
-        offerViewHolder.getTextViewTitle().setText(
-                offer.getTitle())
-        ;
+        Offer offer = offers.get(position);
 
-        offerViewHolder.getTextViewTeaser().setText(
-                offer.getTeaser()
+        offerViewHolder.textViewTitle.setText(
+                offer.getTitle() != null? offer.getTitle() : ""
         );
 
-        offerViewHolder.getTextViewPayout().setText(
-                String.valueOf(offer.getPayout())
+        offerViewHolder.textViewTeaser.setText(
+                offer.getTeaser() != null? offer.getTeaser() : ""
         );
 
-        if(offer.getOfferThumbnail().getHires() != null &&
-               ! offer.getOfferThumbnail().getHires().isEmpty()) {
-            Picasso.with(context).load(offer.getOfferThumbnail().getHires())
+        offerViewHolder.textViewPayout.setText(
+                String.valueOf(offer.getPayout() != null? offer.getPayout() : 0)
+        );
+
+        String offerThumbnailUrl = offer.getOfferThumbnail() != null?
+                offer.getOfferThumbnail().getHires() : null;
+
+        if (offerThumbnailUrl != null && !offerThumbnailUrl.isEmpty()) {
+            Picasso.with(context).load(offerThumbnailUrl)
                     .placeholder(R.drawable.ic_fyber_icon).error(R.drawable.ic_fyber_icon)
-                    .into(offerViewHolder.getImageViewOfferThumbnail());
+                    .into(offerViewHolder.imageViewOfferThumbnail
+                    );
         } else {
-            offerViewHolder.getImageViewOfferThumbnail().
-                    setImageResource(R.drawable.ic_fyber_icon);
+            offerViewHolder.imageViewOfferThumbnail.
+                    setImageResource(R.drawable.ic_fyber_icon
+                    );
         }
     }
 
-    public void setOffers(List<Offer> offersList) {
-        this.offersList = offersList;
+    public void replaceData(List<Offer> offers) {
+        setList(offers);
+        notifyDataSetChanged();
+    }
+
+    private void setList(@NonNull List<Offer> offers) {
+       this.offers = checkNotNull(offers);
     }
 
     @Override
     public int getItemCount() {
-        return offersList.size();
+        return offers.size();
     }
 
   public static class OfferViewHolder extends RecyclerView.ViewHolder {
 
-      private TextView textViewTitle;
-      private TextView textViewTeaser;
-      private TextView textViewPayout;
-      private ImageView imageViewOfferThumbnail;
+      public TextView textViewTitle;
+      public TextView textViewTeaser;
+      public TextView textViewPayout;
+      public ImageView imageViewOfferThumbnail;
 
         public OfferViewHolder(View itemView) {
             super(itemView);
@@ -82,20 +95,5 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.OfferViewH
             imageViewOfferThumbnail = (ImageView) itemView.findViewById(R.id.imgView_offer_thumbnail);
         }
 
-      public TextView getTextViewTitle() {
-          return textViewTitle;
-      }
-
-      public TextView getTextViewTeaser() {
-          return textViewTeaser;
-      }
-
-      public TextView getTextViewPayout() {
-          return textViewPayout;
-      }
-
-      public ImageView getImageViewOfferThumbnail() {
-          return imageViewOfferThumbnail;
-      }
     }
 }

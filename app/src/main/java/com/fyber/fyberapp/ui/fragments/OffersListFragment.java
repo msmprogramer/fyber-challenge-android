@@ -23,6 +23,7 @@ import com.fyber.fyberapp.mvp.presenter.OffersView;
 import com.fyber.fyberapp.ui.views.SimpleDividerItemDecoration;
 
 
+import java.util.Collections;
 import java.util.List;
 
 public class OffersListFragment extends Fragment implements OffersView {
@@ -37,9 +38,11 @@ public class OffersListFragment extends Fragment implements OffersView {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         offersRequest = (OffersRequest) getArguments().
                 getParcelable(OffersRequestFragment.EXTRA_OFFER_REQUEST);
-        offersAdapter = new OffersAdapter(getActivity());
+
+        offersAdapter = new OffersAdapter(getActivity(), Collections.<Offer>emptyList());
         offersPresenter = new OffersPresenter(this, Injection.getOffersInteractorInstance());
     }
 
@@ -91,8 +94,7 @@ public class OffersListFragment extends Fragment implements OffersView {
 
     @Override
     public void showOffers(List<Offer> offers) {
-        offersAdapter.setOffers(offers);
-        offersAdapter.notifyDataSetChanged();
+        offersAdapter.replaceData(offers);
     }
 
     @Override
